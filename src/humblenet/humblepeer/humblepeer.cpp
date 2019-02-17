@@ -21,7 +21,7 @@
 namespace humblenet {
 	const size_t PEER_OFFSET_SIZE = 8;
 
-	class peer_allocator : public flatbuffers::simple_allocator {
+class peer_allocator : public flatbuffers::DefaultAllocator {
 		const size_t _offset;
 	public:
 		peer_allocator(size_t offset) : _offset(offset) {}

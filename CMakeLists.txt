@@ -68,7 +68,8 @@ function(GenerateFlatBuffer outvar)
 endfunction()
 
 add_library(flatbuffers INTERFACE)
-target_include_directories(flatbuffers INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/flatbuffers/include)
+find_path(FLATBUFFERS_INCLUDE_PATH flatbuffers/flatbuffers.h)
+target_include_directories(flatbuffers INTERFACE ${FLATBUFFERS_INCLUDE_PATH})
 
 
 if(HUMBLENET_NATIVE)
