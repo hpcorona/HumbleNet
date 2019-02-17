@@ -881,8 +881,8 @@ char* ILibWrapper_WebRTC_Connection_SetOffer(ILibWrapper_WebRTC_Connection conne
 	ILibRemoteLogging_printf(ILibChainGetLogger(obj->mFactory->mChain), ILibRemoteLogging_Modules_WebRTC_STUN_ICE, ILibRemoteLogging_Flags_VerbosityLevel_1, "[ILibWrapperWebRTC] Return ICE/Response: <br/>%s", sdp);
 
 	ILibWebRTC_SetUserObject(obj->mFactory->mStunModule, un, obj);
-	strcpy_s(obj->localUsername, sizeof(obj->localUsername), un);
-	strcpy_s(obj->localPassword, sizeof(obj->localPassword), up);
+	strncpy(obj->localUsername, un, strlen(obj->localUsername));
+	strncpy(obj->localPassword, up, strlen(obj->localPassword));
 
 	free(un);
 	free(up);
